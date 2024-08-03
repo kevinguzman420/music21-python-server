@@ -11,6 +11,12 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # Create the instrument object outside the function
 selected_instrument = None
 
+
+@app.route("/api/test")
+def test():
+    return jsonify({"message": "Working fine"})
+
+
 @app.route("/api/generate_music", methods=["POST"])
 def generate_music():
     data = request.json
